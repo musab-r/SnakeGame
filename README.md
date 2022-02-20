@@ -1,2 +1,3 @@
 # SnakeGame
-Snake game using Turtle lib 
+
+- LinkedIn Learning course
