@@ -3,11 +3,7 @@ a game called Snake Game. So let's get started """
 
 # Import the Turtle Graphics module
 import turtle
-import random
-from Procedural import offsets, get_distance
-
-colors = random.choice(['red', 'green', 'black'])
-shapes = random.choice(['square', 'triangle', 'classic'])
+from Procedural import offsets, get_distance, get_random_food_pos, colors, shapes
 
 
 class SnakeGame:
@@ -80,21 +76,16 @@ class SnakeGame:
     def food_collision(self):
         if get_distance(self.snake[-1], self.food_pos) < 20:
             self.score += 1  # score = score + 1
-            self.food_pos = self.get_random_food_pos()
+            self.food_pos = get_random_food_pos(self.WIDTH, self.HEIGHT, self.FOOD_SIZE)
             self.food.goto(self.food_pos)
             return True
         return False
-
-    def get_random_food_pos(self):
-        x = random.randint(- self.WIDTH / 2 + self.FOOD_SIZE, self.WIDTH / 2 - self.FOOD_SIZE)
-        y = random.randint(- self.HEIGHT / 2 + self.FOOD_SIZE, self.HEIGHT / 2 - self.FOOD_SIZE)
-        return x, y
 
     def reset(self):
         self.score = 0
         self.snake = [[0, 0], [20, 0], [40, 0], [60, 0]]
         self.snake_direction = "up"
-        self.food_pos = self.get_random_food_pos()
+        self.food_pos = get_random_food_pos(self.WIDTH, self.HEIGHT, self.FOOD_SIZE)
         self.food.goto(self.food_pos)
         self.game_loop()
 
