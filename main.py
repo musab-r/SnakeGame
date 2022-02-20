@@ -20,6 +20,7 @@ class SnakeGame:
         self.food_pos = None
         self.screen = None
         self.stamper = None
+        self.high_score= 0
 
     def set_snake_direction(self, direction):
 
@@ -67,7 +68,7 @@ class SnakeGame:
                 self.stamper.stamp()
 
             # Refresh screen
-            self.screen.title(f"Snake Game. Score: {self.score}")
+            self.screen.title(f"Snake Game. --- Score: {self.score} --- High Score: {self.high_score} ---")
             self.screen.update()
 
             # Rinse and repeat
@@ -79,6 +80,8 @@ class SnakeGame:
             self.food_pos = get_random_food_pos(self.WIDTH, self.HEIGHT, self.FOOD_SIZE)
             self.food.goto(self.food_pos)
             return True
+        if self.high_score < self.score:
+            self.high_score = self.score
         return False
 
     def reset(self):
