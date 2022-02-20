@@ -1,16 +1,25 @@
-# This is a sample Python script.
+"""This the python learning course in which I'm going to develop
+a game called Snake Game. So let's get started """
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import turtle
 
+# Define program constants
+WIDTH = 600
+HEIGHT = 600
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Create a window where we will do our drawing.
+screen = turtle.Screen()
+screen.setup(WIDTH, HEIGHT)  # Set the dimensions of the Turtle Graphics window.
+screen.title("Dot Catcher")
+screen.bgcolor("white")
 
+# Create a turtle to do your bidding
+my_turtle = turtle.Turtle()
+my_turtle.shape("turtle")
+my_turtle.color("red")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# Your turtle awaits your command
+my_turtle.forward(100)  # Sample command
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# This statement (or an equivalent) is needed at the end of all your turtle programs.
+turtle.done()
